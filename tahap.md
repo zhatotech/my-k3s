@@ -28,10 +28,26 @@ curl -sfL https://get.k3s.io | sh -
 ```bash
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 ```
-sampai disini, instalasi untuk Node Master selesai. Untuk melanjutkan menambah worker berikut
+sampai disini, instalasi untuk Node Master selesai. Untuk menambahkan worker ikuti langkah berikut:
 
-
-- ubah permission agar command bisa dijalankan tanpa sudo
+- copy node-token pada master node
 ```bash
 sudo cat /var/lib/rancher/k3s/server/node-token
 ```
+- masuk ke worker dan lakukan
+```bash
+export K3S_TOKEN=token_dari_node_master
+export K3S_URL=https://ip_address_node_master:6443
+```
+- Deploy K3S
+```bash
+curl -sfL https://get.k3s.io | sh -
+```
+- cek semua node pada master node
+```bash
+kubectl get nodes
+```
+
+
+
+
