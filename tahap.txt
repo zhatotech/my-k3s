@@ -14,5 +14,10 @@ senjata yang saya gunakan :
     VERSION_CODENAME=focal
     UBUNTU_CODENAME=focal
 
+```bash
 sudo apt update && sudo apt upgrade - y
+```
 
+```bash
+curl -sfL https://get.k3s.io | sh -
+```
